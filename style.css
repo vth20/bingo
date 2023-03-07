@@ -1,10 +1,39 @@
+* {
+}
+
+body {
+  background: rgb(204, 204, 204);
+  margin: 0;
+}
+
+page {
+  background: white;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 21cm;
+  height: 29.7cm;
+  page-break-after: always;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 320px;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 5px;
-  margin: 0 auto;
   background-color: #f8f8f8;
   border: 3px solid #000;
   border-radius: 5px;
+  width: 320px;
+  height: 320px;
 }
 
 td {
@@ -28,11 +57,32 @@ td {
 .date {
   font-size: 30px;
   font-weight: bold;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: "Tilt Warp", cursive;
 }
 
-#container {
+ul {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Tilt Warp", cursive;
+}
+
+.footer {
+  display: flex;
+  justify-content: end;
+}
+
+#toolbar {
+  display: block;
 }
