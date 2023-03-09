@@ -1,6 +1,12 @@
-const btnGenerate = document.getElementById("generateBtn")
-const btnExport = document.getElementById("exportBtn")
-const toolbar = document.getElementById("toolbar")
+const $ = document.querySelector.bind(document)
+
+const btnGenerate = $("#generateBtn")
+const btnExport = $("#exportBtn")
+const toolbar = $("#toolbar")
+const date = $('#date')
+const root = $('#root')
+
+date.valueAsDate = new Date()
 
 let records = new Set();
 while (records.size < 100) {
@@ -20,7 +26,6 @@ while (records.size < 100) {
 }
 records = Array.from(records, record => JSON.parse(record));
 function getDatePlay() {
-	const date = document.getElementById('date')
 	return new Date(date.value).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' });
 }
 
@@ -48,7 +53,13 @@ function generateTable(records) {
 
 		const footer = document.createElement('div');
 		footer.classList.add('footer');
-		footer.textContent = 'div3.bingo';
+		const cardID = document.createElement('div');
+		const div3 = document.createElement('div');
+		cardID.textContent = `#${(id+1).toString().padStart(3, '0')}`;
+		div3.textContent = 'div3.bingo';
+		footer.appendChild(cardID)
+		footer.appendChild(div3)
+
 
 		const dateElement = document.createElement('div');
 		const date = document.createElement('div');
@@ -57,7 +68,9 @@ function generateTable(records) {
 		const ul = document.createElement('ul');
 		['B', 'I', 'N', 'G', 'O'].forEach(letter => {
 			const li = document.createElement('li');
-			li.textContent = letter;
+			const div = document.createElement('div');
+			div.textContent = letter;
+			li.appendChild(div);
 			ul.appendChild(li);
 		});
 		dateElement.appendChild(date);
@@ -97,11 +110,8 @@ function onGenerate() {
 		wrappedElements.push(page);
 	}
 	console.log(wrappedElements);
-	const root = document.getElementById('root')
-	wrappedElements.forEach(element => {
-		root.appendChild(element)
-	}
-	)
+
+	root.replaceChildren(...wrappedElements);
 }
 
 function onExport() {

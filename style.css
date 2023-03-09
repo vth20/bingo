@@ -10,13 +10,14 @@ page {
   background: white;
   margin: 0 auto;
   margin-bottom: 0.5cm;
-  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 21cm;
+  /* height: 30.65cm; */
   height: 29.7cm;
   page-break-after: always;
+  border: 1px solid #000;
 }
 
 .container {
@@ -73,16 +74,29 @@ ul {
 }
 
 li {
+  font-family: Tilt Warp, cursive;
   font-size: 30px;
   font-weight: bold;
-  font-family: "Tilt Warp", cursive;
+  width: 65px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  margin: 1px 0;
 }
 
 #toolbar {
   display: block;
+}
+
+@media print {
+  body {
+    background: none;
+  }
+  page {
+    height: 30.65cm;
+  }
 }
